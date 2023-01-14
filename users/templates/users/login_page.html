@@ -7,19 +7,19 @@
     <br />
     <br />
     <fieldset class="form-group">
-      <legend class="border-bottom mb-4">Join Today</legend>
+      <legend class="border-bottom mb-4">Login</legend>
       {{form|crispy}}
     </fieldset>
     <div class="form-group">
-      <button class="btn btn-outline-info" type="submit">Sign up</button>
+      <button class="btn btn-outline-info" type="submit">Login</button>
     </div>
   </form>
 
   <!-- already signed in part -->
   <div class="border-top pt-3">
     <small class="text-muted"
-      >Already have an Account?
-      <a href="{% url 'login' %}" class="ml-2">Sign in</a></small
+      >Don't have an Account?
+      <a href="{% url 'register' %}" class="ml-2">Sign up Now</a></small
     >
   </div>
 </div>

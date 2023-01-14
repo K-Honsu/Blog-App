@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Post
+from django.contrib.auth import authenticate, login, logout
 
 # post = [
 #     {
@@ -24,3 +25,5 @@ def homePage(request):
 
 def aboutPage(request):
     return render(request, 'blog/about.html')
+
+
