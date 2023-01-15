@@ -121,6 +121,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #This is where the path in which we tell django to store uploaded files
+MEDIA_URL = '/media/' #public url, this is also where we can get the url from the browser
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
