@@ -1,4 +1,4 @@
-{% extends 'blog/main.html'%} {% block content %}
+{% extends 'blog/main.html'%} {% block content %} {% load crispy_forms_tags %}
 
 <br />
 <br />
@@ -15,6 +15,21 @@
       <p class="text-secondary">{{user.email}}</p>
     </div>
   </div>
+  <!-- Form here -->
+  <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <br />
+    <br />
+    <br />
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Profile Info</legend>
+      {{u_form|crispy}} {{p_form|crispy}}
+    </fieldset>
+    <br />
+    <div class="form-group">
+      <button class="btn btn-outline-info" type="submit">Update</button>
+    </div>
+  </form>
 </div>
 
 {% endblock content %}
