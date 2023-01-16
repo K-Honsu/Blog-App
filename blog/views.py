@@ -27,3 +27,9 @@ def aboutPage(request):
     return render(request, 'blog/about.html')
 
 
+def blogPage(request,pk):
+    blog = Post.objects.get(id=pk)
+    context = {'blog':blog}
+    return render(request, 'blog/update_blog.html', context)
+
+
