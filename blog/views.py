@@ -20,7 +20,7 @@ from .forms import BlogForm
 
 # Create your views here.
 def homePage(request):
-    post = Post.objects.all()
+    post = Post.objects.all().order_by('-date_posted')
     context = {'post':post}
     return render(request, 'blog/home.html', context)
 
@@ -43,5 +43,15 @@ def editBlog(request, pk):
             return redirect('home')
     context = {'form':form}
     return render(request, 'blog/edit-blog.html', context)
+
+
+
+def deleteBlog(request, pk):
+    delp = Post.objects.get(id=pk)
+    if request.method == 'POST':
+        delp.delete()
+        return redirect('/')
+    context = {'delp':delp}
+    return render(request, 'blog/delete.html', context)
 
 

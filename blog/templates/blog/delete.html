@@ -1,0 +1,16 @@
+{% extends 'blog/main.html' %} {% load static %} {% block content %}
+
+<br />
+<br />
+<br />
+<br />
+
+<h2>Are you sure you want to delete '{{delp}}'</h2>
+
+<a class="btn btn-danger" href="{% url 'home'  %} ">Cancel</a>
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Submit" class="btn btn-secondary" />
+</form>
+
+{% endblock content %}
