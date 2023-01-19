@@ -8,14 +8,13 @@
     alt=""
   />
   <div class="media-body">
-    <a href="{% url 'update-blog' posts.id %}"
-      >Edit
-      <div class="article-metadata">
-        <a href="#" class="mr-2">{{posts.author}}</a>
+    <div class="article-metadata">
+      <a href="#" class="mr-2">{{posts.author}}</a>
 
-        <small class="text-muted">{{posts.date_posted}}</small>
-      </div>
-      <h2><a href="#" class="article-title">{{posts.title}}</a></h2>
+      <small class="text-muted">{{posts.date_posted}}</small>
+    </div>
+    <h2><a href="#" class="article-title">{{posts.title}}</a></h2>
+    <a href="{% url 'update' posts.id %}">
       <p class="article-content">{{posts.content}}</p>
     </a>
   </div>

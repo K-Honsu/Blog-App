@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post
 from django.contrib.auth import authenticate, login, logout
+from .forms import BlogForm
 
 # post = [
 #     {
@@ -27,9 +28,20 @@ def aboutPage(request):
     return render(request, 'blog/about.html')
 
 
-def blogPage(request,pk):
-    blog = Post.objects.get(id=pk)
-    context = {'blog':blog}
-    return render(request, 'blog/update_blog.html', context)
+def updatePage(request, pk):
+    page = Post.objects.get(id=pk)
+    context = {'page':page}
+    return render(request, 'blog/update.html', context)
+
+def editBlog(request, pk):
+    page = Post.objects.get(id=pk)
+    form = BlogForm(instance=page)
+    if request.method == 'POST':
+        form = BlogForm(request.POST, instance=page)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    context = {'form':form}
+    return render(request, 'blog/edit-blog.html', context)
 
 
