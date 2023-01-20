@@ -47,11 +47,11 @@ def editBlog(request, pk):
 
 
 def deleteBlog(request, pk):
-    delp = Post.objects.get(id=pk)
+    dela = Post.objects.get(id=pk)
     if request.method == 'POST':
-        delp.delete()
+        dela.delete()
         return redirect('/')
-    context = {'delp':delp}
+    context = {'dela':dela}
     return render(request, 'blog/delete.html', context)
 
 
