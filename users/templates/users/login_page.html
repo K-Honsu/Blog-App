@@ -21,7 +21,9 @@
       >Don't have an Account?
       <a href="{% url 'register' %}" class="ml-2">Sign up Now</a></small
     >
+    <!-- <small class="text-muted"> Forgot Password </small> -->
   </div>
+  <a href="{% url 'password_reset' %}" class="ml-2">Forgot Password</a>
 </div>
 
 {% endblock content %}
